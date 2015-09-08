@@ -9,5 +9,6 @@ builder.defineTasks(['test', 'bundle']);
 // Bundle the modules.
 //
 builder.bundle('js/wizard.js')
+    .withExternalModuleMapping('jqueryui-detached', 'jquery-detached:jqueryui1')
     .less('less/wizard.less')
     .asJenkinsModuleResource();

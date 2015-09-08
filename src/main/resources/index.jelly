@@ -1,0 +1,4 @@
+<?jelly escape-by-default='true'?>
+<div>
+    Temporary Jenkins install wizard. Will be replaced for the real one.
+</div>

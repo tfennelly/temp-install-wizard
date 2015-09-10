@@ -10,6 +10,7 @@
     "jenkins-js-test": "0.0.11"
   },
   "dependencies": {
+    "jenkins-handlebars-rt": "^1.0.1",
     "jenkins-js-modules": "1.0.1",
     "jqueryui-detached": "^1.11.4-v8",
     "window-handle": "0.0.6"

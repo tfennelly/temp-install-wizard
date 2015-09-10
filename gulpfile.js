@@ -10,5 +10,6 @@ builder.defineTasks(['test', 'bundle']);
 //
 builder.bundle('js/wizard.js')
     .withExternalModuleMapping('jqueryui-detached', 'jquery-detached:jqueryui1')
+    .withExternalModuleMapping('handlebars', 'handlebars:handlebars3')
     .less('less/wizard.less')
     .asJenkinsModuleResource();

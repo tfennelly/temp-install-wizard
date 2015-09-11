@@ -1,7 +1,7 @@
 var jQueryUI = require('jqueryui-detached');
 var $ = jQueryUI.getJQueryUI();
 
-var wizardTemplate = require('./wizard.hbs');
+var wizardTemplate = require('./templates/wizard.hbs');
 var modal = $(wizardTemplate());
 
 $('body').append(modal);
@@ -13,6 +13,10 @@ modal.dialog({
         Ok: function () {
             $(this).dialog("close");
             modal.remove();
+            
+            // Install the "recommended" plugins ...
+            var pm = require('./pluginManager');
+            pm.installPlugins(['github', 'workflow-aggregator']);
         }
     }
 });

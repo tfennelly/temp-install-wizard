@@ -1,7 +1,6 @@
 var ajax = require('./util/ajax');
-var browser = require('./util/browser');
 
-exports.installPlugins = function(pluginList) {
+exports.installPlugins = function(pluginList, callback) {
     if (pluginList) {
         var apiCallArg = {};
         
@@ -14,9 +13,7 @@ exports.installPlugins = function(pluginList) {
         // TODO Would be "nicer" as a JSON POST.
         ajax.execAsyncGET('/pluginManager/install', apiCallArg, function() {
             ajax.execAsyncGET('/saveLastExecVersion', undefined, function() {
-                // Redirect the browser to the update center page now so 
-                // they can follow plugin install process.
-                browser.goTo('/updateCenter')
+                callback();
             });
         });
     }

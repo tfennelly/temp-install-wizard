@@ -1,5 +1,6 @@
 var jQueryUI = require('jqueryui-detached');
 var $ = jQueryUI.getJQueryUI();
+var browser = require('./util/browser');
 
 var wizardTemplate = require('./templates/wizard.hbs');
 var modal = $(wizardTemplate());
@@ -16,7 +17,11 @@ modal.dialog({
             
             // Install the "recommended" plugins ...
             var pm = require('./pluginManager');
-            pm.installPlugins(['github', 'workflow-aggregator']);
+            pm.installPlugins(['github', 'workflow-aggregator'], function() {
+                // Redirect the browser to the update center page so 
+                // the user can follow the plugin install progress.
+                browser.goTo('/updateCenter')
+            });
         }
     }
 });

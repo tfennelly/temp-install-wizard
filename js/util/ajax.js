@@ -1,9 +1,10 @@
 var jQuery = require('jquery-detached');
+var system = require('./system');
 
 exports.execAsyncGET = function (url, params, onsuccess) {
     var $ = jQuery.getJQuery();
 
-    var rootUrl = getRootUrl($);
+    var rootUrl = system.getRootUrl();
     $.ajax({
         url: (rootUrl + url),
         type: 'get',
@@ -11,7 +12,3 @@ exports.execAsyncGET = function (url, params, onsuccess) {
         success: onsuccess
     });
 };
-
-function getRootUrl($) {
-    return $('head').attr('data-rooturl');
-}
